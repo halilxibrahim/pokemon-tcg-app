@@ -1,0 +1,29 @@
+import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import CardListScreen from '../screens/CardListScreen';
+import CardDetailScreen from '../screens/CardDetailScreen';
+import { RootStackParamList } from './index';
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+export const Navigation = () => {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="CardList">
+        <Stack.Screen 
+          name="CardList" 
+          component={CardListScreen} 
+          options={{ title: 'Pokémon Kartları' }}
+        />
+        <Stack.Screen 
+          name="CardDetail" 
+          component={CardDetailScreen} 
+          options={{ title: 'Kart Detayı' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
+
+export default Navigation; 
