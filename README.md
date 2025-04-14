@@ -1,11 +1,13 @@
 # Pokémon TCG App Case for Byterise Company
+<img width="1470" alt="Image" src="https://github.com/user-attachments/assets/838bcb35-42f1-4f1d-8453-a798ca7d5fe9" />
 
 A React Native mobile application that showcases Pokémon Trading Card Game (TCG) cards using the public Pokémon TCG API.
-
 ## 📱 App Overview
 
 This application was built as part of a mobile app coding challenge. It allows users to browse Pokémon cards, view detailed information about each card, and save their favorite cards locally on their device.
+
 App Overview Video:
+https://youtu.be/v7uT5i-0cFA
 
 
 ### Key Features:
@@ -106,12 +108,3 @@ This application was developed with a focus on:
 - Responsive UI design
 - Type safety with TypeScript
 - Regular commits with descriptive messages
-
-## 🔜 Future Improvements
-
-With additional time, the following enhancements could be implemented:
-- Advanced filtering and search functionality
-- Card collection management features
-- Offline mode for viewing saved cards
-- Enhanced accessibility features
-
