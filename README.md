@@ -6,8 +6,10 @@ A React Native mobile application that showcases Pokémon Trading Card Game (TCG
 
 This application was built as part of a mobile app coding challenge. It allows users to browse Pokémon cards, view detailed information about each card, and save their favorite cards locally on their device.
 
-App Overview Video:
-https://youtu.be/v7uT5i-0cFA
+
+## 📱 App Demonstration
+
+A video demonstration of the app is available at: https://youtu.be/v7uT5i-0cFA
 
 
 ### Key Features:
@@ -93,11 +95,6 @@ The application uses Redux Toolkit for state management to efficiently handle:
 The app integrates with the [Pokémon TCG API](https://docs.pokemontcg.io/) to fetch card data:
 - `GET /v2/cards` - Used to retrieve the list of Pokémon cards
 - `GET /v2/cards/:id` - Used to fetch detailed information about a specific card
-
-## 📱 App Demonstration
-
-A video demonstration of the app is available at: [Demo Video Link]
-
 
 ## 👨‍💻 Development Approach
 
