@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../navigation';
+import { RootStackParamList } from '../navigation/Navigation';
 import { RootState, AppDispatch } from '../store';
 import { fetchCards, loadSavedCards } from '../store/pokemonSlice';
 import CardItem from '../components/CardItem';

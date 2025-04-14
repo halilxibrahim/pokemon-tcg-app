@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../navigation';
+import { RootStackParamList } from '../navigation/Navigation';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState, AppDispatch } from '../store';
 import { fetchCardById, saveCard, removeCard } from '../store/pokemonSlice';

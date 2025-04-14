@@ -3,8 +3,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CardListScreen from '../screens/CardListScreen';
 import CardDetailScreen from '../screens/CardDetailScreen';
-import { RootStackParamList } from './index';
 
+export type RootStackParamList = {
+  CardList: undefined;
+  CardDetail: { cardId: string };
+};
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export const Navigation = () => {
