@@ -115,6 +115,7 @@ const pokemonSlice = createSlice({
       })
       .addCase(removeCard.fulfilled, (state, action) => {
         state.savedCards = state.savedCards.filter(id => id !== action.payload);
+        state.cards = state.cards.filter(card => card.id !== action.payload);
       });
   }
 });

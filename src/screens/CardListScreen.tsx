@@ -10,7 +10,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation';
-import { RootState } from '../store';
+import { RootState, AppDispatch } from '../store';
 import { fetchCards, loadSavedCards } from '../store/pokemonSlice';
 import CardItem from '../components/CardItem';
 import LoadingIndicator from '../components/LoadingIndicator';
@@ -23,7 +23,7 @@ interface Props {
 }
 
 const CardListScreen: React.FC<Props> = ({ navigation }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { cards, loading, error, hasMore, page } = useSelector(
     (state: RootState) => state.pokemon
   );
@@ -74,7 +74,7 @@ const CardListScreen: React.FC<Props> = ({ navigation }) => {
       <FlatList
         data={cards}
         renderItem={renderItem}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item, index) => `${item.id}-${index}`}
         numColumns={2}
         contentContainerStyle={styles.listContainer}
         onEndReached={handleLoadMore}

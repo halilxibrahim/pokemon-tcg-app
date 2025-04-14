@@ -12,7 +12,7 @@ import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../navigation';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store';
+import { RootState, AppDispatch } from '../store';
 import { fetchCardById, saveCard, removeCard } from '../store/pokemonSlice';
 import LoadingIndicator from '../components/LoadingIndicator';
 
@@ -24,9 +24,9 @@ interface Props {
   navigation: CardDetailScreenNavigationProp;
 }
 
-const CardDetailScreen: React.FC<Props> = ({ route }) => {
+const CardDetailScreen: React.FC<Props> = ({ route, navigation }) => {
   const { cardId } = route.params;
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
   const { currentCard, loading, error, savedCards } = useSelector(
     (state: RootState) => state.pokemon
   );
@@ -40,6 +40,7 @@ const CardDetailScreen: React.FC<Props> = ({ route }) => {
   const handleToggleSave = () => {
     if (isSaved) {
       dispatch(removeCard(cardId));
+      navigation.navigate('CardList');
     } else {
       dispatch(saveCard(cardId));
     }
@@ -112,7 +113,7 @@ const CardDetailScreen: React.FC<Props> = ({ route }) => {
           onPress={handleToggleSave}
         >
           <Text style={styles.buttonText}>
-            {isSaved ? 'Kartı Kaldır' : 'Kartı Kaydet'}
+            {isSaved ? 'Kartı Sil' : 'Kartı Kaydet'}
           </Text>
         </TouchableOpacity>
       </ScrollView>

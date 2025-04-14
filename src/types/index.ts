@@ -5,6 +5,11 @@ export interface PokemonCard {
     subtypes: string[];
     hp: string;
     types: string[];
+    abilities?: Array<{
+      name: string;
+      text: string;
+      type: string;
+    }>;
     evolvesTo?: string[];
     rules?: string[];
     attacks?: Array<{
