@@ -63,7 +63,7 @@ const CardListScreen: React.FC<Props> = ({ navigation }) => {
     return (
       <View style={styles.centerContainer}>
         <Text style={styles.errorText}>
-          Bir hata oluştu. Lütfen tekrar deneyin.
+          An error occurred. Please try again.
         </Text>
       </View>
     );

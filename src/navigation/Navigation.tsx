@@ -14,12 +14,12 @@ export const Navigation = () => {
         <Stack.Screen 
           name="CardList" 
           component={CardListScreen} 
-          options={{ title: 'Pokémon Kartları' }}
+          options={{ title: 'Pokémon Cards' }}
         />
         <Stack.Screen 
           name="CardDetail" 
           component={CardDetailScreen} 
-          options={{ title: 'Kart Detayı' }}
+          options={{ title: 'Card Details' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

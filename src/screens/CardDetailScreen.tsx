@@ -6,7 +6,8 @@ import {
   StyleSheet, 
   ScrollView, 
   TouchableOpacity, 
-  SafeAreaView 
+  SafeAreaView,
+  Alert
 } from 'react-native';
 import { RouteProp } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -40,9 +41,22 @@ const CardDetailScreen: React.FC<Props> = ({ route, navigation }) => {
   const handleToggleSave = () => {
     if (isSaved) {
       dispatch(removeCard(cardId));
-      navigation.navigate('CardList');
+      Alert.alert(
+        "Card Deleted",
+        "The card has been removed from your saved cards.",
+        [
+          { text: "OK", onPress: () => navigation.navigate('CardList') }
+        ]
+      );
     } else {
       dispatch(saveCard(cardId));
+      Alert.alert(
+        "Card Saved",
+        "The card has been added to your saved cards.",
+        [
+          { text: "OK" }
+        ]
+      );
     }
   };
 
@@ -54,7 +68,7 @@ const CardDetailScreen: React.FC<Props> = ({ route, navigation }) => {
     return (
       <View style={styles.centerContainer}>
         <Text style={styles.errorText}>
-          Kart bilgilerini yüklerken bir hata oluştu. Lütfen tekrar deneyin.
+          An error occurred while loading card details. Please try again.
         </Text>
       </View>
     );
@@ -81,7 +95,7 @@ const CardDetailScreen: React.FC<Props> = ({ route, navigation }) => {
           
           {currentCard.types && currentCard.types.length > 0 && (
             <View style={styles.infoRow}>
-              <Text style={styles.infoLabel}>Tipler:</Text>
+              <Text style={styles.infoLabel}>Types:</Text>
               <View style={styles.typesContainer}>
                 {currentCard.types.map((type, index) => (
                   <View key={index} style={styles.typeTag}>
@@ -94,7 +108,7 @@ const CardDetailScreen: React.FC<Props> = ({ route, navigation }) => {
           
           {currentCard.abilities && currentCard.abilities.length > 0 && (
             <View>
-              <Text style={styles.sectionTitle}>Yetenekler</Text>
+              <Text style={styles.sectionTitle}>Abilities</Text>
               {currentCard.abilities.map((ability, index) => (
                 <View key={index} style={styles.abilityContainer}>
                   <Text style={styles.abilityName}>{ability.name}</Text>
@@ -113,7 +127,7 @@ const CardDetailScreen: React.FC<Props> = ({ route, navigation }) => {
           onPress={handleToggleSave}
         >
           <Text style={styles.buttonText}>
-            {isSaved ? 'Kartı Sil' : 'Kartı Kaydet'}
+            {isSaved ? 'Delete Card' : 'Save Card'}
           </Text>
         </TouchableOpacity>
       </ScrollView>
@@ -138,7 +152,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 250,
-    height: 350,
+    height: 280,
     marginBottom: 24,
   },
   detailsContainer: {
